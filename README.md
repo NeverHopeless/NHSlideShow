@@ -1,5 +1,5 @@
 # NHSlideShow
-This control provides varity of animation options to run a slideshow on iphone, ipod and ipad as well.
+This control provides varity of animation options to run a slideshow on iphone, ipod and ipad as well. It maintains a circular queue of images.
 
 Here is how it looks like:
 
@@ -15,6 +15,7 @@ The attached source code is available for both storyboard and XIBs. On slight mo
 {
      [super viewDidLoad];
 
+      // Create slide show control
       slideShow = [[NHSlideShow alloc] initWithFrame:CGRectMake(0, 0, kScreenSize.height, kScreenSize.width)]; 
      [slideShow setDelayInTransition:2.0f];
      [slideShow setDelegate:self];
@@ -24,7 +25,12 @@ The attached source code is available for both storyboard and XIBs. On slight mo
 -(void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
+    
+     // This will help to run the same code on iphone if single layout files 
+     // designed for both iphone 4 and iphone 5.
     [slideShow doneLayout];
+    
+     // Start slide show
     [slideShow start];
 }
 
@@ -56,6 +62,7 @@ The attached source code is available for both storyboard and XIBs. On slight mo
 
 -(IBAction)valueChanged:(UISegmentedControl *)segmentedControl
 {
+    // Change animation mode
     NSLog(@"ValueChanged...");
     
     switch (segmentedControl.selectedSegmentIndex)
@@ -87,6 +94,7 @@ The attached source code is available for both storyboard and XIBs. On slight mo
 
 -(IBAction)modeValueChanged:(UISegmentedControl *)segmentedControl
 {
+    // Change slide execution mode
     NSLog(@"ValueChanged...");
     
     switch (segmentedControl.selectedSegmentIndex)
@@ -106,11 +114,13 @@ The attached source code is available for both storyboard and XIBs. On slight mo
 
 -(IBAction)btnNext_Click:(id)sender
 {
+     // Move to next slide
     [slideShow moveNext];
 }
 
 -(IBAction)btnPrevious_Click:(id)sender
 {
+     // Move to previous slide
     [slideShow movePrevious];
 }
 
