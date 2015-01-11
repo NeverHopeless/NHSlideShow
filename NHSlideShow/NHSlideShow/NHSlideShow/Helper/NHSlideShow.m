@@ -352,12 +352,10 @@
 
 -(void)runScaleAnimation
 {
-    // BOOL clipsToBound = self.clipsToBounds; // Keep previous value
     [currentImg setAlpha:1.0f];
     [nextImg    setAlpha:0.0f];
     [nextImg setX:currentImg.xLocation];
     [self sendSubviewToBack:nextImg];
-    //[self setClipsToBounds:YES];
     
     [UIView animateWithDuration:kAnimationDuration * 0.25
                           delay:0.0f
@@ -384,9 +382,6 @@
               
               // Move pointer to next slide
               [self slideChanged];
-              
-              // Restore original `clipsToBounds` value
-              //[self setClipsToBounds:clipsToBound];
               
               // Relocate the position which was changed due to animation
               [currentImg setX:0.0f];

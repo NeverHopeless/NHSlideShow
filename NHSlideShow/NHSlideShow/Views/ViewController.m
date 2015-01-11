@@ -146,7 +146,7 @@
 
 -(NSInteger)slideShowShouldStartFromSlide:(NHSlideShow *)slideShow
 {
-    return 5;
+    return 0; // Pass the starting slide number
 }
 
 -(void)slideShow:(NHSlideShow *)slideShow didChangedSlideAtIndex:(NSInteger)slideIndex
