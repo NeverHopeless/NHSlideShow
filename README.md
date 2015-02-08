@@ -1,6 +1,9 @@
 # NHSlideShow
 This control provides varity of animation options to run a slideshow on iphone, ipod and ipad as well. It maintains a circular queue of images.
 
+This control is also available on Cocoacontrols.com:
+https://www.cocoacontrols.com/controls/nhslideshow
+
 Here is how it looks like:
 
 <img src="https://journeytoios.files.wordpress.com/2015/01/screen-shot.png" alt="Runtime View">
