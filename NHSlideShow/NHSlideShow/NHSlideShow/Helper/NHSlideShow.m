@@ -158,37 +158,40 @@
 
 -(void)beginAnimation
 {
-    [self setUserInteractionEnabled:NO];
-     self.isAnimating = YES;
-    
-    [nextImg setImage:[collection objectAtIndex:otherImageCounter]];
-    
-    switch (self.slideShowMode)
+    if(!self.isAnimating) // This check is needed for iOS8, due to a bug in NSTimer.
     {
-        case NHSlideShowModeSwipeLeft:
+        [self setUserInteractionEnabled:NO];
+         self.isAnimating = YES;
+        
+        [nextImg setImage:[collection objectAtIndex:otherImageCounter]];
+        
+        switch (self.slideShowMode)
         {
-            [self runSwipeLeftAnimation];
-        }break;
-        case NHSlideShowModeFade:
-        {
-            [self runFadeAnimation];
-        }break;
-        case NHSlideShowModeScale:
-        {
-            [self runScaleAnimation];
-        }break;
-        case NHSlideShowModeWindow:
-        {
-            [self runWindowsAnimation];
-        }break;
-        case NHSlideShowModeRandom:
-        {
-            [self runRandomAnimation];
-        }break;
-        default:
-        {
-
-        }break;
+            case NHSlideShowModeSwipeLeft:
+            {
+                [self runSwipeLeftAnimation];
+            }break;
+            case NHSlideShowModeFade:
+            {
+                [self runFadeAnimation];
+            }break;
+            case NHSlideShowModeScale:
+            {
+                [self runScaleAnimation];
+            }break;
+            case NHSlideShowModeWindow:
+            {
+                [self runWindowsAnimation];
+            }break;
+            case NHSlideShowModeRandom:
+            {
+                [self runRandomAnimation];
+            }break;
+            default:
+            {
+                
+            }break;
+        }
     }
 }
 
